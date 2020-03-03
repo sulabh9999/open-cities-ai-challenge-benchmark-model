@@ -35,7 +35,7 @@ Publish your docker image to both gpu and cpu repos:
 ```
 ./docker/publish_image
 ```
-Both images will be tagged with `world-bank-challenge`. When/if you make changes to the aux commands you will need to repeat this process (i.e. rebuild the Docker image and publish the updated version to ecr).
+Both images will be tagged with `world-bank-challenge`. When/if you make changes to the aux_ commands you will need to repeat this process (i.e. rebuild the Docker image and publish the updated version to ecr).
 
 Run the Docker container with the `run` script:
 ```
@@ -43,15 +43,15 @@ Run the Docker container with the `run` script:
 ```
 The `--aws` flag forwards your AWS credentials which you will need if you plan to run any jobs remotely or access data on s3. However if you store your data and train the model locally you can run the script without it.
 
-In order to run the aux commands necessary for this experiment you will need to [update your Raster Vision configuration](https://docs.rastervision.io/en/latest/setup.html#aws-batch-configuration-section). Add the following lines to the bottom of the configuration file for the profile you plan to use:
+In order to run the aux_ commands necessary for this experiment you will need to [update your Raster Vision configuration](https://docs.rastervision.io/en/latest/setup.html#aws-batch-configuration-section). Add the following lines to the bottom of the configuration file for the profile you plan to use:
 ```
 [PLUGINS]
-modules=benchmark.aux
+modules=benchmark.aux_
 ```
 or use the template in `.rastervision/wbbenchmark`.
 
 ### *3. Preprocess training imagery*
-Many of the training scenes are too large to read into memory in order to produce training chips. Of course this would depend on the amount of memory you are able to allocate but this is experiment is set up to work on remote cpu instances with 6gb of memory each. To get around this issue, you need to split the original scenes up into smaller images (or image splits) that are a manageable size. We can do this using a [Raster Vision Aux Command](https://docs.rastervision.io/en/0.10/commands.html#auxiliary-aux-commands) that you can write to perform data processing operations in sequence with the stand rv commands (e.g. `train`, `predict`, `eval`). The `PREPROCESS` aux command is defined in the `aux` submodule.
+Many of the training scenes are too large to read into memory in order to produce training chips. Of course this would depend on the amount of memory you are able to allocate but this is experiment is set up to work on remote cpu instances with 6gb of memory each. To get around this issue, you need to split the original scenes up into smaller images (or image splits) that are a manageable size. We can do this using a [Raster Vision Aux Command](https://docs.rastervision.io/en/0.10/commands.html#aux_iliary-aux_-commands) that you can write to perform data processing operations in sequence with the stand rv commands (e.g. `train`, `predict`, `eval`). The `PREPROCESS` aux_ command is defined in the `aux_` submodule.
 
 From within the docker container, first define the root uri and image split location:
 ```

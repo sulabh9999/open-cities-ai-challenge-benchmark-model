@@ -6,4 +6,4 @@ cpu_job_definition=[cpu job definition]
 attempts = 1
 
 [PLUGINS]
-modules=benchmark.aux
+modules=benchmark.aux_

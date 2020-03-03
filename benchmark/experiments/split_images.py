@@ -1,7 +1,7 @@
 from os.path import dirname, join
 
 import rastervision as rv
-from benchmark.aux.preprocess import PREPROCESS
+from benchmark.aux_.preprocess import PREPROCESS
 from benchmark.constants import TRAIN_IDS, VALID_IDS
 from pystac import Catalog
 

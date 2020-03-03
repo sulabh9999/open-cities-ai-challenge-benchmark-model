@@ -135,7 +135,7 @@ class BenchmarkExperiment(rv.ExperimentSet):
             label_uri = join(dirname(train_stac_uri), area,
                              '{}-labels'.format(item.id), '{}.geojson'.format(item.id))
 
-            # If you preprocessed the imagery using the 'PREPROCESS' aux command, the
+            # If you preprocessed the imagery using the 'PREPROCESS' aux_ command, the
             # image splits will have integer suffixes that ascend from 0 until the image
             # has been completely covered. To make sure we get all of the splits we will
             # incrementally create new uri's until one is found to not exist.
@@ -252,8 +252,8 @@ class BenchmarkExperiment(rv.ExperimentSet):
         # a value of 2 in the raw predictions but we need to convert them to 0 to match the
         # submission guidelines.
         #
-        # We can do this using a simple aux command called 'POSTPROCESS' that is defined in
-        # aux/postprocess.py. This command requires a few parameters that we define in the dict
+        # We can do this using a simple aux_ command called 'POSTPROCESS' that is defined in
+        # aux_/postprocess.py. This command requires a few parameters that we define in the dict
         # below. It takes the raw prediction tifs as input. These are not created yet but
         # will be written to a specific location below the root uri. Raster Vision will understand
         # that the POSTPROCESS task relies on the output of the predict task and will therefore
